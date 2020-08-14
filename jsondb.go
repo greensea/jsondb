@@ -20,7 +20,7 @@ type Driver struct {
     Opt *Options
 }
 
-func New(d string, opt *Options) (*Driver, error) {
+func New(opt *Options) (*Driver, error) {
     var err error
     
     
