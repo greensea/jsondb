@@ -73,6 +73,16 @@ func (t *Driver) Read(col string, key string, i interface{}) error {
     return nil
 }
 
+func (t *Driver) Delete(col string, key string) error {
+    p := t.Path(col, key)
+    _, err := os.Stat(p)
+    if err != nil && os.IsNotExist(err) {
+        return nil
+    }
+    
+    err = os.Remove(p)
+    return err
+}
 
 func (t *Driver) Keys(col string) ([]string, error) {
     dir := fmt.Sprintf("%s/%s", t.Opt.Dir, col)
