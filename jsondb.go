@@ -44,7 +44,7 @@ func New(opt *Options) (*Driver, error) {
 
 
 func (t *Driver) Write(col string, key string, i interface{}) error {
-    os.MkdirAll(fmt.Sprintf("%s/%s", t.Opt.Dir, col), os.ModeDir)
+    os.MkdirAll(fmt.Sprintf("%s/%s", t.Opt.Dir, col), os.ModePerm)
     
     raw, err := json.Marshal(i)
     if err != nil {
