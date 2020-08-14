@@ -75,7 +75,7 @@ func (t *Driver) Read(col string, key string, i interface{}) error {
 
 
 func (t *Driver) Keys(col string) ([]string, error) {
-    dir := t.Path(col, key)
+    dir := fmt.Sprintf("%s/%s", t.Opt.Dir, col)
     
     d, err := ioutil.ReadDir(dir)
     if err != nil {
