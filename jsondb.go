@@ -24,7 +24,7 @@ func New(opt *Options) (*Driver, error) {
     var err error
     
     
-    err = os.MkdirAll(opt.Dir, os.ModeDir)
+    err = os.MkdirAll(opt.Dir, os.ModePerm)
     if err != nil && os.IsNotExist(err) {
         return nil, err
     }
